@@ -17,7 +17,8 @@
       <name>Dennis Öhman</name>
       <website>https://bjornmamman.se</website>
     </author>
-    <readme><![CDATA[Another awesome package]]></readme>
+    <readme>
+		<![CDATA[Adds a content app where you can copy properties between variants]]></readme>
   </info>
   <files>
     <folder path="src/Our.Umbraco.CopyVariant/App_Plugins/Our.Umbraco.CopyVariant" orgPath="App_Plugins/Our.Umbraco.CopyVariant" />

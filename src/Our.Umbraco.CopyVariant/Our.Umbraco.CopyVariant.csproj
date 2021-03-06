@@ -12,6 +12,11 @@
 		<OutputPath>bin\output\</OutputPath>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 		<Version>0.1.0</Version>
+		<PackageIcon>icon.png</PackageIcon>
+		<PackageProjectUrl>https://github.com/madsoulswe/Our.Umbraco.CopyVariant</PackageProjectUrl>
+		<Description>Adds a content app where you can copy properties between variants
+</Description>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -31,5 +36,12 @@
 	  <Compile Include="Composer.cs" />
 	  <Compile Include="Models\CopyCulture.cs" />
 	  <Compile Include="Models\AvailableCultures.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="..\..\icon.png">
+	    <Pack>True</Pack>
+	    <PackagePath></PackagePath>
+	  </None>
 	</ItemGroup>
 </Project>
