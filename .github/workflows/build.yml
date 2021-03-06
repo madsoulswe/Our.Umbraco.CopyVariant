@@ -4,7 +4,7 @@
 #   e.g release/1.0.2 will build v1.0.2
 #
 
-name: Build and Package
+name: Build and release
 
 env:
   ACTIONS_ALLOW_UNSECURE_COMMANDS: true
