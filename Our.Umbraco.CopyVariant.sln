@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30128.74
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Our.Umbraco.CopyVariant.Site", ".website\Our.Umbraco.CopyVariant.Site.csproj", "{4D43E34D-7EF5-4531-9050-3B464E108D63}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Our.Umbraco.CopyVariant", "src\Our.Umbraco.CopyVariant\Our.Umbraco.CopyVariant.csproj", "{209ECBBF-F5FA-40EF-BDB7-33C2F94F0724}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Develop", "Develop", "{06853541-2F01-4600-B9CD-9B2A26E4D8E0}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\build.yml = .github\workflows\build.yml
+		gulpfile.js = gulpfile.js
+		package.json = package.json
+		package.xml = package.xml
+		paths.json = paths.json
+		readme.md = readme.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D43E34D-7EF5-4531-9050-3B464E108D63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D43E34D-7EF5-4531-9050-3B464E108D63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D43E34D-7EF5-4531-9050-3B464E108D63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D43E34D-7EF5-4531-9050-3B464E108D63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{209ECBBF-F5FA-40EF-BDB7-33C2F94F0724}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{209ECBBF-F5FA-40EF-BDB7-33C2F94F0724}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{209ECBBF-F5FA-40EF-BDB7-33C2F94F0724}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{209ECBBF-F5FA-40EF-BDB7-33C2F94F0724}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0A4335E4-0198-4777-9409-64E22F1F8F2C}
+	EndGlobalSection
+EndGlobal

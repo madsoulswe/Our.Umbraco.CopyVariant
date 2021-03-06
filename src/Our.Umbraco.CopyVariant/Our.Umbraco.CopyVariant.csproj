@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net472</TargetFramework>
+		<RootNamespace>Our.Umbraco.CopyVariant</RootNamespace>
+
+		<IncludeContentInPack>true</IncludeContentInPack>
+		<ContentTargetFolders>content</ContentTargetFolders>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<OutputPath>bin\output\</OutputPath>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<Version>0.1.0</Version>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="UmbracoCms.Web" Version="8.6.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="App_Plugins\**\*" />
+		<Compile Remove="**\*" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Include="Controllers\**\*" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Include="Composer.cs" />
+	  <Compile Include="Models\CopyCulture.cs" />
+	  <Compile Include="Models\AvailableCultures.cs" />
+	</ItemGroup>
+</Project>

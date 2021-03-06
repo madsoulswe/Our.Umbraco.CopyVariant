@@ -1,0 +1,75 @@
+<div ng-controller="umbracopackage__1ContentAppController as vm">
+
+    <umb-load-indicator ng-if="vm.loading"></umb-load-indicator>
+
+    <div ng-if="!vm.loading" class="flex items-start">
+
+        <umb-box>
+
+            <umb-box-content>
+                <h3>Copy culture variants</h3>
+                <div class="flex justify-center">
+
+                    <div class="mr5">
+                        <h5>Copy..</h5>
+                        <div class="umb-checkboxlist">
+                            <ul class="unstyled">
+                                <li ng-repeat="item in vm.properties track by item.alias">
+                                    <umb-checkbox name="paroperty" value="{{::item.alias}}" model="item.copy" text="{{::item.name}}"></umb-checkbox>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mr5">
+                        <h5>And..</h5>
+                        <div class="umb-checkboxlist">
+                            <ul class="unstyled">
+                                <li>
+                                    <umb-checkbox name="create" value="{{ vm.create}}" model="vm.create" text="Create if it does not exists"></umb-checkbox>
+                                </li>
+                                <li>
+                                    <umb-checkbox name="overwrite" value="{{ vm.overwrite}}" model="vm.overwrite" text="Overwrite existing values"></umb-checkbox>
+                                </li>
+                                <li>
+                                    <umb-checkbox name="publish" value="{{ vm.publish}}" model="vm.publish" text="Save & publish"></umb-checkbox>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mr5">
+                        <h5>To..</h5>
+                        <div class="umb-checkboxlist">
+                            <ul class="unstyled">
+                                <li class="mb1" ng-repeat="item in vm.cultures track by item.alias">
+                                    <umb-button action="vm.copy(item)"
+                                                label="{{item.name}}"
+                                                state="item.state"
+                                                type="button"
+                                                css-class="pl2 pr2"
+                                                button-style="info">
+                                    </umb-button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="">
+                        <h5>Then..</h5>
+                        <umb-button action="vm.reload()"
+                                    label="Refresh"
+                                    type="button"
+                                    button-style="success"></umb-button>
+
+                    </div>
+                </div>
+
+
+
+
+            </umb-box-content>
+
+        </umb-box>
+
+    </div>
+
+
+</div>

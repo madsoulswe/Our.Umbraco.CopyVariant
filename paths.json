@@ -1,0 +1,5 @@
+{
+  "library": "src/Our.Umbraco.CopyVariant",
+  "pluginFolder": "Our.Umbraco.CopyVariant",
+  "site": ".website"
+}

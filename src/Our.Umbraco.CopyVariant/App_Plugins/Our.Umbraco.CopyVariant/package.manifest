@@ -1,0 +1,15 @@
+{
+	"javascript": [
+		"~/App_Plugins/Our.Umbraco.CopyVariant/service.js",
+		"~/App_Plugins/Our.Umbraco.CopyVariant/contentapp.controller.js"
+	],
+	"contentApps": [
+		{
+			"name": "Copy variants",
+			"alias": "Our.Umbraco.CopyVariant",
+			"weight": 999, //Hides it far away, because it's not a contentapp for daily use
+			"icon": "icon-split-alt",
+			"view": "~/App_Plugins/Our.Umbraco.CopyVariant/contentapp.html"
+		}
+	]
+}
