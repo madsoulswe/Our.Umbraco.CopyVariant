@@ -46,6 +46,7 @@
 
                     variant.tabs.forEach(function (tab) {
                         tab.properties.forEach(function (property) {
+
                             if (property.culture != null) {
                                 vm.properties.push({
                                     alias: property.alias,
@@ -91,10 +92,6 @@
             ).then(r => {
                 culture.state = "success";
                 culture.loading = false;
-
-                
-
-                vm.reload();
             }, e => {
                 culture.state = "error";
                 culture.loading = false;
@@ -103,10 +100,8 @@
 		}
 
         vm.reload = function () {
-            vm.loading = true;
-
-            windo
-
+            vm.loading = true
+            window.location.reload();
 		}
 
         function init() {
