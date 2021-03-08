@@ -5,6 +5,9 @@
 	],
 	"contentApps": [
 		{
+			"show": [
+				"+content/*"
+			],
 			"name": "Copy variants",
 			"alias": "Our.Umbraco.CopyVariant",
 			"weight": 999, //Hides it far away, because it's not a contentapp for daily use
