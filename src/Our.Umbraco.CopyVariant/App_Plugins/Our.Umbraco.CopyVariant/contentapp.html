@@ -15,7 +15,7 @@
                         <div class="umb-checkboxlist">
                             <ul class="unstyled">
                                 <li ng-repeat="item in vm.properties track by item.alias">
-                                    <umb-checkbox name="paroperty" value="{{::item.alias}}" model="item.copy" text="{{::item.name}}"></umb-checkbox>
+                                    <umb-checkbox disabled="item.isDisabled" name="paroperty" value="{{::item.alias}}" model="item.copy" text="{{::item.name}}"></umb-checkbox>
                                 </li>
                             </ul>
                         </div>

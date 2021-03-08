@@ -50,6 +50,7 @@
                                 vm.properties.push({
                                     alias: property.alias,
                                     name: property.label,
+                                    isDisabled: property.editor === "Umbraco.NestedContent" || property.editor === "Umbraco.BlockList",
                                     copy: false,
                                 });
                             }

@@ -51,8 +51,14 @@ namespace Our.Umbraco.CopyVariant.Controllers
 				Services.ContentService.Save(content);
 			}
 
+			var complexProperty = new string[] {
+				global::Umbraco.Core.Constants.PropertyEditors.Aliases.NestedContent,
+				global::Umbraco.Core.Constants.PropertyEditors.Aliases.BlockList
+			};
+
 			foreach (var property in content.Properties.Where(x => 
 				x.PropertyType.VariesByCulture() &&
+				!complexProperty.Contains(x.PropertyType.Alias) &&
 				(model.Properties.Any() && model.Properties.Contains(x.Alias))
 			))
 			{
