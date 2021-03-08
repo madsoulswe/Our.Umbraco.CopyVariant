@@ -33,6 +33,10 @@
 
             vm.current.variants.forEach(function (variant) {
                 if (variant.active) {
+
+                    if (variant.language === null)
+                        return;
+
                     vm.culture = {
                         state: variant.state,
                         alias: variant.language.culture,
