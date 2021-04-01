@@ -14,7 +14,8 @@ using Umbraco.Web.WebApi.Filters;
 namespace Our.Umbraco.CopyVariant.Controllers
 {
 	//Route: ~/Umbraco/Api/[YourControllerName]
-	public class CopyVariantApiController : UmbracoApiController
+
+	public class CopyVariantApiController : UmbracoAuthorizedApiController
 	{
 		[HttpGet]
 		public bool GetApi() => true;
