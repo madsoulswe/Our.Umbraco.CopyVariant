@@ -53,8 +53,8 @@ namespace Our.Umbraco.CopyVariant.Controllers
 			}
 
 			var complexProperty = new string[] {
-				global::Umbraco.Core.Constants.PropertyEditors.Aliases.NestedContent,
-				global::Umbraco.Core.Constants.PropertyEditors.Aliases.BlockList
+				//global::Umbraco.Core.Constants.PropertyEditors.Aliases.NestedContent,
+				//global::Umbraco.Core.Constants.PropertyEditors.Aliases.BlockList
 			};
 
 			foreach (var property in content.Properties.Where(x => 
