@@ -1,15 +1,22 @@
-﻿//https://our.umbraco.com/Documentation/Reference/Routing/WebApi/
-
-// The UmbracoApiController derives from the ASP.NET WebAPI controller:
-// https://www.asp.net/web-api
-
-using Our.Umbraco.CopyVariant.Models;
+﻿using Our.Umbraco.CopyVariant.Models;
 using System.Linq;
+
+
+#if NETFRAMEWORK
 using System.Web.Http;
 using Umbraco.Core;
 using Umbraco.Core.Models;
 using Umbraco.Web.WebApi;
 using Umbraco.Web.WebApi.Filters;
+#else
+using Umbraco.Cms.Core.PropertyEditors;
+using Umbraco.Cms.Core.Models.PublishedContent;
+using Umbraco.Cms.Web.BackOffice.Controllers;
+using Umbraco.Extensions;
+using Microsoft.AspNetCore.Mvc;
+using Umbraco.Cms.Core.Services;
+#endif
+
 
 namespace Our.Umbraco.CopyVariant.Controllers
 {
@@ -17,7 +24,16 @@ namespace Our.Umbraco.CopyVariant.Controllers
 
 	public class CopyVariantApiController : UmbracoAuthorizedApiController
 	{
-		[HttpGet]
+
+#if NET5_0_OR_GREATER
+        public ServiceContext Services { get; }
+        public CopyVariantApiController(ServiceContext services)
+		{
+			Services = services;
+		}
+#endif
+
+        [HttpGet]
 		public bool GetApi() => true;
 
 		public AvailableCultures AvailableCultures(int id)
@@ -26,11 +42,11 @@ namespace Our.Umbraco.CopyVariant.Controllers
 
 			if (content == null)
 				return default;
-
+            
 			return new AvailableCultures()
 			{
 				Cultures = content.PublishedCultures,
-				Properties = content.Properties.Where<Property>(x => x.PropertyType.VariesByCulture()).ToDictionary(x => x.Alias, y => y.PropertyType.Name)
+				Properties = content.Properties.Where(x => x.PropertyType.VariesByCulture()).ToDictionary(x => x.Alias, y => y.PropertyType.Name)
 			};
 		}
 

@@ -1,0 +1,29 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <CopyVariantContentFilesPath>
+        $(MSBuildThisFileDirectory)..\content\App_Plugins\Our.Umbraco.CopyVariant\**\*.*
+    </CopyVariantContentFilesPath>
+  </PropertyGroup>
+  <Target Name="CopyCopyVariantAssets" BeforeTargets="Build">
+    <ItemGroup>
+      <CopyVariantContentFiles Include="$(CopyVariantContentFilesPath)" />
+    </ItemGroup>
+    <Message
+        Text="Copying CopyVariant files: $(CopyVariantContentFilesPath) - #@(CopyVariantContentFiles->Count()) files"
+        Importance="high" />
+    <Copy SourceFiles="@(CopyVariantContentFiles)"
+            DestinationFiles="@(CopyVariantContentFiles->'$(MSBuildProjectDirectory)\App_Plugins\Our.Umbraco.CopyVariant\%(RecursiveDir)%(Filename)%(Extension)')"
+            SkipUnchangedFiles="true" />
+
+  </Target>
+
+  <Target Name="ClearCopyVariantAssets" BeforeTargets="Clean">
+    <ItemGroup>
+      <CopyVariantDir
+          Include="$(MSBuildProjectDirectory)\App_Plugins\Our.Umbraco.CopyVariant\" />
+    </ItemGroup>
+    <Message Text="Clear old CopyVariant data"  Importance="high" />
+    <RemoveDir Directories="@(CopyVariantDir)"  />
+  </Target>
+
+</Project>

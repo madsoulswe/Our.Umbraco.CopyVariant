@@ -1,47 +1,62 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net472</TargetFramework>
+		<TargetFrameworks>net472;net5.0;net6.0</TargetFrameworks>
 		<RootNamespace>Our.Umbraco.CopyVariant</RootNamespace>
-
 		<IncludeContentInPack>true</IncludeContentInPack>
 		<ContentTargetFolders>content</ContentTargetFolders>
-	</PropertyGroup>
-
-	<PropertyGroup>
-		<OutputPath>bin\output\</OutputPath>
-		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-		<Version>0.1.0</Version>
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageProjectUrl>https://github.com/madsoulswe/Our.Umbraco.CopyVariant</PackageProjectUrl>
-		<Description>Adds a content app where you can copy properties between variants
-</Description>
+		<Description>Adds a content app where you can copy properties between variants</Description>
+		<RepositoryType>GIT</RepositoryType>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<IsPackable>True</IsPackable>
 	</PropertyGroup>
 
-	<ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'net472'">
 		<PackageReference Include="UmbracoCms.Web" Version="8.11.1" />
 	</ItemGroup>
 
+	<ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
+		<PackageReference Include="Umbraco.Cms.Web.Website" Version="9.0.0" />
+		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="9.0.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
+		<PackageReference Include="Umbraco.Cms.Web.Website" Version="10.0.0" />
+		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="10.0.0" />
+	</ItemGroup>
+
 	<ItemGroup>
-		<Content Include="App_Plugins\**\*" />
+		<Content Include="App_Plugins\**\*.*">
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+			<CopyToPublishDirectory>Always</CopyToPublishDirectory>
+		</Content>
 		<Compile Remove="**\*" />
+		<None Include="build\**\*.*">
+			<Pack>True</Pack>
+			<PackagePath>buildTransitive</PackagePath>
+		</None>
 	</ItemGroup>
 
 	<ItemGroup>
 		<Compile Include="Controllers\**\*" />
+		<Compile Include="Composer.cs" />
+		<Compile Include="Models\CopyCulture.cs" />
+		<Compile Include="Models\AvailableCultures.cs" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Include="Composer.cs" />
-	  <Compile Include="Models\CopyCulture.cs" />
-	  <Compile Include="Models\AvailableCultures.cs" />
+		<None Include="..\..\icon.png">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
 	</ItemGroup>
 
-	<ItemGroup>
-	  <None Include="..\..\icon.png">
-	    <Pack>True</Pack>
-	    <PackagePath></PackagePath>
-	  </None>
-	</ItemGroup>
+	<Target Name="RemoveLoggingAnalyzer" BeforeTargets="CoreCompile">
+		<ItemGroup>
+			<Analyzer Remove="@(Analyzer)" Condition="%(FileName) == 'Lucene.Net.CodeAnalysis.CSharp'" />
+		</ItemGroup>
+	</Target>
 </Project>

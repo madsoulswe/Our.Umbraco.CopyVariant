@@ -22,7 +22,7 @@
   </info>
   <files>
     <folder path="src/Our.Umbraco.CopyVariant/App_Plugins/Our.Umbraco.CopyVariant" orgPath="App_Plugins/Our.Umbraco.CopyVariant" />
-    <file path="src/Our.Umbraco.CopyVariant/bin/output/Our.Umbraco.CopyVariant.dll" orgPath="bin/Our.Umbraco.CopyVariant.dll" />
+    <file path="src/Our.Umbraco.CopyVariant/bin/release/net472/Our.Umbraco.CopyVariant.dll" orgPath="bin/Our.Umbraco.CopyVariant.dll" />
   </files>
   <Actions />
   <control />
